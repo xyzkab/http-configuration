@@ -4,12 +4,20 @@ module HTTP
 
   module Configuration
 
+    def uri
+      base_uri.uri
+    end
+
     def base_uri
       @base_uri ||= BaseURI.new
     end
     
     def base_uri=(attributes)
       @base_uri ||= BaseURI.new(attributes)
+    end
+
+    def base_uri_reset!
+      @base_uri = nil
     end
 
     class BaseURI
@@ -23,7 +31,7 @@ module HTTP
       end
 
       def use_ssl?
-        @ssl ? true : false
+        @ssl
       end
 
       def uri
