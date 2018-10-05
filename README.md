@@ -28,7 +28,7 @@ class MyPrivateAPI
 
 end
 
-MyPrivateAPI.base_uri = {host: "my.private.api", port: 80, ssl: true}
+MyPrivateAPI.base_uri = {host: "my.private.api", ssl: true}
 MyPrivateAPI.base_uri => #<HTTP::Configuration::BaseURI:0x00005652ef74b7b8 @host="my.private.api", @port=80, @ssl=true>
 MyPrivateAPI.uri => "https://my.private.api"
 MyPrivateAPI.base_uri_reset! => nil
