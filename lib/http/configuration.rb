@@ -4,6 +4,8 @@ module HTTP
 
   module Configuration
 
+    VERSION = '0.0.1'
+
     def uri
       base_uri.uri
     end
