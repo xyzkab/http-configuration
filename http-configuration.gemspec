@@ -2,9 +2,9 @@ Gem::Specification.new do |s|
   s.name        = 'http-configuration'
   s.version     = '0.0.1'
   s.date        = '2018-09-21'
-  s.summary     = 'HTTP::Configuration is Configuration extension for HTTP module'
+  s.summary     = 'HTTP::Configuration is a configuration extension for HTTP module'
   s.description = %q{
-    HTTP::Configuration is Configuration extension for HTTP module
+    HTTP::Configuration is a configuration extension for HTTP module to setting BaseURI
   }
   s.add_dependency('http')
   s.authors     = 'xyzkab'
