@@ -5,7 +5,7 @@
 
 Add this line to your application's Gemfile:
 ```ruby
-gem 'http_configuration', :git => 'https://github.com/xyzkab/http-configuration'
+gem 'http-configuration', :git => 'https://github.com/xyzkab/http-configuration'
 ```
 
 And then execute:
