@@ -31,7 +31,6 @@ end
 >> MyPrivateAPI.base_uri = {host: "my.private.api", ssl: true}
 >> MyPrivateAPI.base_uri
 => "https://my.private.api"
->> MyPrivateAPI.base_uri_reset!
 => nil
 
 ```
