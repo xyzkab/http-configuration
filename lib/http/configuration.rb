@@ -6,12 +6,8 @@ module HTTP
 
     VERSION = '0.0.1'
 
-    def uri
-      base_uri.uri
-    end
-
     def base_uri
-      @base_uri ||= BaseURI.new
+      @base_uri&.uri
     end
     
     def base_uri=(attributes)
