@@ -11,11 +11,7 @@ module HTTP
     end
     
     def base_uri=(attributes)
-      @base_uri ||= BaseURI.new(attributes)
-    end
-
-    def base_uri_reset!
-      @base_uri = nil
+      @base_uri = BaseURI.new(attributes)
     end
 
     class BaseURI
