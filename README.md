@@ -1,5 +1,5 @@
 # http-configuration
-`HTTP::Configuration` is a configuration extension for `HTTP` module, first intended purpose is only to configure `base_uri` for `HTTP` request target by explicitly specifying the `host`,`port`,`ssl` `BaseURI` class attribute.
+This is a configuration extension for `HTTP` module, first intended purpose is only to configure `base_uri` for `HTTP` request target by explicitly specifying the `host`,`port`,`ssl` `BaseURI` class attribute.
 
 ## Installation
 
