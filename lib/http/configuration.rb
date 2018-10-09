@@ -57,6 +57,7 @@ module HTTP
       end
 
       def_delegator :headers, :each
+      def_delegator :headers, :to_hash
     end
 
     module Mixin
