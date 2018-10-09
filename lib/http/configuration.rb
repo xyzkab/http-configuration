@@ -70,6 +70,14 @@ module HTTP
         after_configure
       end
 
+      def base_uri
+        @configuration&.base_uri&.uri
+      end
+
+      def base_headers
+        @configuration&.base_headers
+      end
+
       def configuration_reset!
         @configuration = nil
       end
