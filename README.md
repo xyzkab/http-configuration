@@ -20,16 +20,20 @@ $ bundle install
 Here's some simple examples to get you started:
 
 ```ruby
-require 'http/configuration'
-
-class MyPrivateAPI
-
-  extend HTTP::Configuration
-
-end
-
->> MyPrivateAPI.base_uri = {host: "my.private.api", ssl: true}
->> MyPrivateAPI.base_uri
+>> require 'http/configuration'
+=> true
+>> class MyPrivateAPI
+>>   extend HTTP::Configuration::Mixin
+>> end
+=> MyPrivateAPI
+>> MyPrivateAPI.configure do |conf|
+?>   conf.base_uri.host = "my.private.api"
+>>   conf.base_uri.ssl  = true
+>>   conf.base_headers.content_type = "application/json"
+>> end
+=> #<HTTP::Configuration:0x0000561dd25be488 @base_uri=#<HTTP::Configuration::BaseURI:0x0000561dd25be410 @host="my.private.api", @port=80, @ssl=true>, @base_headers=#<HTTP::Configuration::BaseHeaders:0x0000561dd25be398 @headers=#<HTTP::Headers {"Content-Type"=>"application/json"}>>>
+>> MyPrivateAPI.configuration.base_uri.uri
 => "https://my.private.api"
-
+>> MyPrivateAPI.configuration.base_headers.content_type
+=> "application/json"
 ```
