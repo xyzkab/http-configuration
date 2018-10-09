@@ -65,14 +65,17 @@ module HTTP
 
         if block_given?
           yield(@configuration)
-          @configuration
-        else
-          @configuration
         end
+
+        after_configure
       end
 
       def configuration_reset!
         @configuration = nil
+      end
+
+      def after_configure
+        raise NotImplementedError, "You must implement `after_configure` hook"
       end
     end
 
