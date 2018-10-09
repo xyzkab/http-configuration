@@ -2,16 +2,13 @@ require 'http'
 
 module HTTP
 
-  module Configuration
+  class Configuration
 
-    VERSION = '0.0.1'
+    attr_accessor :base_uri, :base_headers
 
-    def base_uri
-      @base_uri&.uri
-    end
-    
-    def base_uri=(attributes)
-      @base_uri = BaseURI.new(attributes)
+    def initialize(attributes = {})
+      @base_uri     = BaseURI.new(attributes[:base_uri] || {})
+      @base_headers = BaseHeaders.new(attributes[:base_headers] || {})
     end
 
     class BaseURI
@@ -36,6 +33,46 @@ module HTTP
         else
           "http://#{@host}:#{@port}"
         end        
+      end  
+    end
+
+    class BaseHeaders
+
+      include HTTP::Headers::Mixin
+      
+      def initialize(attributes = {})
+        @headers = HTTP::Headers.new
+        attributes.each do |key, val|
+          @headers[key] = val
+        end
+      end
+
+      def content_type
+        @headers[:content_type]
+      end
+
+      def content_type=(value)
+        @headers[:content_type] = value
+      end
+    end
+
+    module Mixin
+
+      attr_reader :configuration
+
+      def configure
+        @configuration ||= Configuration.new
+
+        if block_given?
+          yield(@configuration)
+          @configuration
+        else
+          @configuration
+        end
+      end
+
+      def configuration_reset!
+        @configuration = nil
       end
     end
 
