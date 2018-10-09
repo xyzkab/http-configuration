@@ -24,6 +24,9 @@ Here's some simple examples to get you started:
 => true
 >> class MyPrivateAPI
 >>   extend HTTP::Configuration::Mixin
+>>   def self.after_configure
+>>     @configuration
+>>   end
 >> end
 => MyPrivateAPI
 >> MyPrivateAPI.configure do |conf|
