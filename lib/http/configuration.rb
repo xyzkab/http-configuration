@@ -38,6 +38,7 @@ module HTTP
 
     class BaseHeaders
 
+      extend Forwardable
       include HTTP::Headers::Mixin
       
       def initialize(attributes = {})
@@ -54,6 +55,8 @@ module HTTP
       def content_type=(value)
         @headers[:content_type] = value
       end
+
+      def_delegator :headers, :each
     end
 
     module Mixin
