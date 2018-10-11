@@ -79,7 +79,7 @@ module HTTP
       end
 
       def base_headers
-        @configuration&.base_headers
+        @configuration&.base_headers || {}
       end
 
       def configuration_reset!
